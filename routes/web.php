@@ -31,6 +31,12 @@ Route::group(['as'=>'evaluator.','prefix'=>'evaluator', 'namespace'=>'Evaluator'
     Route::get('dashboard','DashboardController@index')->name('dashboard');
 
 });
+Route::resource('customer','CustomerController');
+//Route::group(['as'=>'Customer.'], function(){
+//    Route::get('/','CustomerController@index')->name('dashboard/home');
+//    Route::get('/create','CustomerController@create')->name('dashboard/create');
+//    Route::get('/create','CustomerController@store')->name('dashboard/store');
+//});
 
 //Auth::routes();
 
