@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>SB Admin 2 - @yield('title')</title>
-    @include('evaluator.parts.css')
+    @include('admin.parts.css')
     @yield('styles')
 </head>
 
@@ -24,13 +24,13 @@
                 </div>
             </div>
         </div>
-        @include('evaluator.parts.footer')
+{{--        @include('admin.parts.footer')--}}
     </div>
 </div>
 <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
 </a>
-@include('evaluator.parts.js')
+@include('admin.parts.js')
 @yield('scripts')
 </body>
 
