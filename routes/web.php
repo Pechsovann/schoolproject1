@@ -32,6 +32,7 @@ Route::group(['as'=>'evaluator.','prefix'=>'evaluator', 'namespace'=>'Evaluator'
 
 });
 Route::resource('customer','CustomerController');
+Route::resource('document','DocController');
 //Route::group(['as'=>'Customer.'], function(){
 //    Route::get('/','CustomerController@index')->name('dashboard/home');
 //    Route::get('/create','CustomerController@create')->name('dashboard/create');

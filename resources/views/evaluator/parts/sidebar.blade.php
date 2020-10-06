@@ -13,7 +13,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="{{  url('admin/dashboard') }}">
+        <a class="nav-link" href="{{  route('evaluator.dashboard') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -31,14 +31,14 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
            aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>
-            <span>User Account</span>
+            <span>Create</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Custom User:</h6>
-                <a class="collapse-item" href="{{ url('admin/components/button') }}">Create admin</a>
-                <a class="collapse-item" href="{{ url('admin/components/button') }}">Create evaluator</a>
-                <a class="collapse-item" href="{{ url('admin/components/card') }}">List all User</a>
+                <a class="collapse-item" href="{{ url('customer/create') }}">Create Customer</a>
+                <a class="collapse-item" href="{{ url('document/create') }}">Create Document</a>
+
             </div>
         </div>
     </li>
@@ -48,14 +48,14 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
            aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-wrench"></i>
-            <span>Roles</span>
+            <span>Table</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Custom Roles:</h6>
-                <a class="collapse-item" href="{{ url('admin/utilities/colors') }}">Create Roles</a>
-                <a class="collapse-item" href="{{ url('admin/utilities/borders') }}">List Roles</a>
+                <a class="collapse-item" href="{{ url('customer') }}">Table Customer</a>
+                <a class="collapse-item" href="{{ url('document ') }}">Table Document</a>
 {{--                <a class="collapse-item" href="{{ url('admin/utilities/animations') }}">Animations</a>--}}
 {{--                <a class="collapse-item" href="{{ url('admin/utilities/other') }}">Other</a>--}}
             </div>
