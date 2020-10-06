@@ -3,14 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Customers;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Validation\ValidationException;
+use Illuminate\View\View;
 
 class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Application|Factory|View
      */
     public function index()
     {
@@ -21,7 +27,7 @@ class CustomerController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Application|Factory|View
      */
     public function create()
     {
@@ -31,9 +37,9 @@ class CustomerController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Illuminate\Validation\ValidationException
+     * @param Request $request
+     * @return RedirectResponse
+     * @throws ValidationException
      */
     public function store(Request $request)
     {
@@ -50,14 +56,14 @@ class CustomerController extends Controller
            'address'=> $request->get('address'),
         ]);
         $customers->save();
-        return redirect()->route('evaluator.Customer.index')->with('success','Data Added');
+        return redirect()->route('customer.index')->with('success','Data Added');
     }
 
     /**
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show($id)
     {
@@ -68,20 +74,21 @@ class CustomerController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Application|Factory|View
      */
     public function edit($id)
     {
-        $customers = Customers::find('$id');
-        return view('customer.edit',compact('customers','id'));
+        $customers = Customers::find($id);
+        return view('evaluator.Customer.edit',compact('customers','id'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Request $request
+     * @param int $id
+     * @return RedirectResponse
+     * @throws ValidationException
      */
     public function update(Request $request, $id)
     {
@@ -91,20 +98,20 @@ class CustomerController extends Controller
             'phone_number'=>'required',
             'address'=>'required'
         ]);
-        $customers = Customers::find('id');
+        $customers = Customers::find($id);
         $customers->first_name = $request->get('first_name');
         $customers->last_name = $request->get('last_name');
         $customers->phone_number = $request->get('phone_number');
-        $customers->adddress = $request->get('address');
+        $customers->address = $request->get('address');
         $customers->save();
-        return redirect()->route('evaluator.Customer.index')->with('success','Data Added');
+        return redirect()->route('customer.index')->with('success','Data Update Successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function destroy($id)
     {

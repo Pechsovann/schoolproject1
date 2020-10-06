@@ -13,11 +13,11 @@
             @endforeach
         </ul>
     @endif
-    <form method="post" action="{{action('CustomerController@update ','$id')}}"
+    <form method="post" action="{{route('customer.update',$id)}}">
     {{csrf_field()}}
         <input type="hidden" name="_method" value="PATCH">
     <div class="form-group">
-        <input type="text" name="first_name" class="form-control" value="{{$customer->first_name}}" placeholder="Enter First Name" />
+        <input type="text" name="first_name" class="form-control" value="{{$customers->first_name}}" placeholder="Enter First Name" />
     </div>
         <div class="form-group">
         <input type="text" name="last_name" class="form-control" value="{{$customers->last_name}}" placeholder="Enter Last Name" />
@@ -29,9 +29,10 @@
     <input type="text" name="address" class="form-control" value="{{$customers->address}}" placeholder="Enter Address" />
     </div>
         <div class="form-group">
-        <input type="submit" class="btn btn-primary" value="Edit" />
+        <input type="submit" class="btn btn-primary" value="Save" />
     </div>
-    </div>
-    </div>
+
     </form>
+    </div>
+    </div>
     @endsection
