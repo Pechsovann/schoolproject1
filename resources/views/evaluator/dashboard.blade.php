@@ -23,8 +23,9 @@
                     @yield('contents')
                 </div>
             </div>
+            @include('admin.parts.footer')
         </div>
-{{--        @include('admin.parts.footer')--}}
+
     </div>
 </div>
 <a class="scroll-to-top rounded" href="#page-top">

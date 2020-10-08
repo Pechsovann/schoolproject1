@@ -31,8 +31,11 @@ Route::group(['as'=>'evaluator.','prefix'=>'evaluator', 'namespace'=>'Evaluator'
     Route::get('dashboard','DashboardController@index')->name('dashboard');
 
 });
+
+Route::post('lot/create','DocController@createLot')->name('lot.create');
 Route::resource('customer','CustomerController');
 Route::resource('document','DocController');
+Route::resource('property','PropertyController');
 //Route::group(['as'=>'Customer.'], function(){
 //    Route::get('/','CustomerController@index')->name('dashboard/home');
 //    Route::get('/create','CustomerController@create')->name('dashboard/create');

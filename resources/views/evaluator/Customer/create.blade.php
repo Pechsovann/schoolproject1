@@ -34,12 +34,32 @@
                 <div class="form-group">
                     <input type="text" class="form-control" id="inputPassword" name="address" placeholder="Address">
                 </div>
+{{--                </div> <div class="form-group">--}}
+{{--                    <input type="text" class="form-control" id="inputPassword" name="address" placeholder="Address">--}}
+{{--                </div>--}}
+
+                <div class="form-group">
+                    <select id="company" class="form-control" style="width: 200px" name="province_id">
+                        <option></option>
+                        @foreach($data as $cy)
+                        <option value="{{ $cy->id }}">{{$cy->company_area}}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary">
                 </div>
 
             </form>
     </div>
-
+@endsection
+@section('scripts')
+    <script>
+        $("#company").select2({
+            placeholder: 'select company area',
+            allowClear:true
+        })
+    </script>
 
 @endsection
+

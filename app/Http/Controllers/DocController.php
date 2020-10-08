@@ -2,15 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Customers;
 use App\documents;
+use http\Client\Curl\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 use League\CommonMark\Block\Element\Document;
+use function GuzzleHttp\Promise\all;
 
 class DocController extends Controller
 {
@@ -21,7 +26,17 @@ class DocController extends Controller
      */
     public function index()
     {
-        $documents = Documents::all()->toArray();
+//        $documents = DB::table('documents')
+//            ->join('customers','documents.customer_id', 'customers.id')
+//            ->select([
+//                'id' => 'documents.id',
+//                'customer_first_name' => 'customers.first_name',
+//                'property' => 'documents.property',
+//                'customer_last_name' => 'customers.last_name'
+//            ])
+//            ->get();
+        $documents = documents::all();
+//        return $documents;
         return view('evaluator.documents.index', compact('documents'));
     }
 
@@ -32,7 +47,8 @@ class DocController extends Controller
      */
     public function create()
     {
-        return view('evaluator.documents.create');
+        $customers = Customers::all();
+        return view('evaluator.documents.create', compact('customers'));
     }
 
     /**
@@ -49,11 +65,7 @@ class DocController extends Controller
             'property'=>'required',
 
         ]);
-        $documents = new Documents([
-            'customer_name'=> $request->get('customer_name'),
-            'property'=> $request->get('property')
-        ]);
-        $documents->save();
+        $documents = Documents::create($request->all());
         return redirect()->route('document.index')->with('success','Data Added');
     }
 
@@ -115,4 +127,29 @@ class DocController extends Controller
         $documents -> delete();
         return redirect()->route('document.index')->with('success', 'Data Deleted');
     }
+
+
+//    public function createLot(Request $request)
+//    {
+////        dd($request->all());
+//        $lot = $request->lot;
+//
+//        for($i=1; $i<=$lot; $i++) {
+//            $input = [
+//                'first_name' => 'test'.$i,
+//                'last_name' => 'test____'.$i,
+//                'phone_number' => '000000111-'.$i,
+//                'address' => 'address-'.$i,
+//            ];
+//            Customers::create($input);
+//        }
+//
+//        return response(
+//            ([
+//                'status' => true,
+//                'message' => 'customer created',
+//            ])
+//        );
+//
+//    }
 }

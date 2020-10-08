@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Customers;
+use App\Province;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
@@ -20,7 +22,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $customers = Customers::all()->toArray();
+        $customers = Customers::all();
         return view('evaluator.Customer.index', compact('customers'));
     }
 
@@ -31,7 +33,9 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        return view('evaluator.Customer.create');
+//        dd("hello");
+        $data=Province::all();
+        return view('evaluator.Customer.create', compact('data'));
     }
 
     /**
@@ -49,21 +53,15 @@ class CustomerController extends Controller
            'phone_number'=>'required',
            'address'=>'required'
         ]);
-        $customers = new Customers([
-           'first_name'=> $request->get('first_name'),
-           'last_name'=> $request->get('last_name'),
-           'phone_number'=> $request->get('phone_number'),
-           'address'=> $request->get('address'),
-        ]);
-        $customers->save();
+        $customers = Customers::create($request->all());
         return redirect()->route('customer.index')->with('success','Data Added');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return Response
+     * @param int $id
+     * @return void
      */
     public function show($id)
     {
