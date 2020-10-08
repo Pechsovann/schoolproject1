@@ -19,6 +19,7 @@ class CreateCustomersTable extends Migration
             $table->string('last_name');
             $table->string('phone_number');
             $table->string('address');
+            $table->unsignedBigInteger('province_id')->nullable();
             $table->timestamps();
         });
     }

@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class documents extends Model
 {
-    protected $fillable=['customer_name','property'];
+    protected $table = 'documents';
+    protected $fillable=['customer_name','property', 'customer_id','timestamps'];
+
+    public function customer() {
+        return $this->belongsTo(Customers::class, 'customer_id', 'id');
+    }
 }
