@@ -1,6 +1,7 @@
 @extends('evaluator.dashboard')
 @section('head')
     <h3 align="center">Create Documents</h3>
+    <br>
 @endsection
 
 @section('contents')
@@ -25,16 +26,17 @@
             {{--                <form>--}}
             {{csrf_field()}}
             <div class="form-group">
-                <input type="text" class="form-control" id="inputEmail" name="customer_name" placeholder="Customer Name">
+                <input type="text" class="form-control" id="inputEmail" name="customer_name" placeholder="Username">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="inputPassword" name="property" placeholder="Property">
+                <input type="text" class="form-control" id="inputPassword" name="property_price" placeholder="Property_price">
             </div>
 
             <div class="form-group">
                 <select id="company" class="form-control" style="width: 200px" name="customer_id">
+                    <option></option>
                     @foreach($customers as $cy)
-                        <option value="{{ $cy->id }}">{{$cy->first_name}} {{ $cy->last_name }}</option>
+                        <option value="{{ $cy->id }}"> {{$cy->first_name}} {{ $cy->last_name }}</option>
 {{--                        <option value="{{ $cy->id }}">{{$cy->first_name}} {{ $cy->last_name }}</option>--}}
                     @endforeach
                 </select>
@@ -44,7 +46,7 @@
                 <input type="submit" class="btn btn-primary">
             </div>
         </form>
-
+    </div>
 {{--        <div class="form-group row">--}}
 {{--            <input type="text" name="lot_num" class="form-control col-sm-6">--}}
 {{--            <div class="col-sm-6">--}}
@@ -53,6 +55,15 @@
 {{--        </div>--}}
     </div>
 
+
+@endsection
+@section('scripts')
+    <script>
+        $("#company").select2({
+            placeholder: 'Select Customer Name',
+            allowClear:true
+        })
+    </script>
 
 @endsection
 {{--@section('scripts')--}}

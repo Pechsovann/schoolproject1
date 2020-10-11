@@ -25,10 +25,10 @@
                         <input type="text" name="customer_name" class="form-control" value="{{$documents->customer_name}}" placeholder="Document name" />
                     </div>
                     <div class="form-group">
-                        <input type="text" name="property" class="form-control" value="{{$documents->property}}" placeholder="property_price" />
+                        <input type="text" name="property_price" class="form-control" value="{{$documents->property_price}}" placeholder="property_price" />
                     </div>
                     <div class="form-group">
-                        <input type="text" name="property" class="form-control" value="{{$documents->customer->address}}" placeholder="Address_Customer" />
+                        <input type="text" name="address" class="form-control" value="{{$documents->customer->address}}" placeholder="Address_Customer" />
                     </div>
 {{--                    <div class="form-group">--}}
 {{--                        <select id="company" class="form-control" style="width: 200px" name="customer_id">--}}

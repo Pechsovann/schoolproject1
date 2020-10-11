@@ -52,6 +52,7 @@
             @endforeach
         </table>
     </div>
+    </div>
 @endsection
 
 @section('scripts')

@@ -14,12 +14,12 @@
             <br />
             <br />
         </div>
-        <table id="example" class="table table-bordered table-striped" style="width: 100%">
+        <table id="myTable" class="table table-bordered table-striped" style="width: 100%">
             <thead>
             <tr>
                 <th>#</th>
                 <th>Document Customer</th>
-                <th>property</th>
+                <th>property_price</th>
                 <th>Customer full Name</th>
                 <th>Address</th>
                 <th>Province-City</th>
@@ -34,13 +34,12 @@
                     <td>{{$row->id}}</td>
 {{--                    <td>{{$row->customer}}</td>--}}
                     <td>{{$row->customer_name}}</td>
-                    <td>{{$row->property}}</td>
-
+                    <td>{{$row->property_price}}</td>
                     <td>{{$row->customer->full_name}}</td>
                     <td>{{$row->customer->address}}</td>
                     <td>{{$row->customer->province->company_area}}</td>
                     <td>{{$row->created_at}}</td>
-                    <td> <a href="{{route('document.edit', $row->id)}}" class="btn btn-warning">Edit</a>
+                    <td> <a href="{{ route('document.edit', $row->id)}}" class="btn btn-warning">Edit</a>
                         {{--                         <a href="{{action('CustomerController@destroy', $row['id'])}}" class="btn btn-danger">Delete</a>--}}
 
                     </td>
@@ -56,25 +55,31 @@
             @endforeach
         </table>
     </div>
-    <script>
-        $(document).ready(function () {
-            $('.delete_form').on('submit', function () {
-                if(confirm("Are you sure want to delete it ?"))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            });
+{{--    <script>--}}
+{{--        $(document).ready(function () {--}}
+{{--            $('.delete_form').on('submit', function () {--}}
+{{--                if(confirm("Are you sure want to delete it ?"))--}}
+{{--                {--}}
+{{--                    return true;--}}
+{{--                }--}}
+{{--                else--}}
+{{--                {--}}
+{{--                    return false;--}}
+{{--                }--}}
+{{--            });--}}
 
-        });
-        $(document).ready(function () {
-            $('#example').DataTable();
-        });
-      </script>
+{{--        });--}}
+{{--        // $(document).ready(function () {--}}
+{{--        //     $('#example').DataTable();--}}
+{{--        // });--}}
+{{--      </script>--}}
 
     </div>
 @endsection
-
+@section('scripts')
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        })
+    </script>
+@endsection

@@ -52,11 +52,12 @@
 
             </form>
     </div>
+    </div>
 @endsection
 @section('scripts')
     <script>
         $("#company").select2({
-            placeholder: 'select company area',
+            placeholder: 'Select Company Area',
             allowClear:true
         })
     </script>

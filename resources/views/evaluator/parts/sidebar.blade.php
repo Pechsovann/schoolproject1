@@ -38,6 +38,8 @@
                 <h6 class="collapse-header">Custom User:</h6>
                 <a class="collapse-item" href="{{ url('customer/create') }}">Create Customer</a>
                 <a class="collapse-item" href="{{ url('document/create') }}">Create Document</a>
+                <a class="collapse-item" href="{{ url('stuff/create') }}">Create Stuff</a>
+                <a class="collapse-item" href="{{ url('property/create') }}">Create Property</a>
 
             </div>
         </div>
@@ -56,6 +58,8 @@
                 <h6 class="collapse-header">Custom Roles:</h6>
                 <a class="collapse-item" href="{{ url('customer') }}">Table Customer</a>
                 <a class="collapse-item" href="{{ url('document ') }}">Table Document</a>
+                <a class="collapse-item" href="{{ url('stuff ') }}">Table Stuff</a>
+                <a class="collapse-item" href="{{ url('property ') }}">Table Property</a>
 {{--                <a class="collapse-item" href="{{ url('admin/utilities/animations') }}">Animations</a>--}}
 {{--                <a class="collapse-item" href="{{ url('admin/utilities/other') }}">Other</a>--}}
             </div>

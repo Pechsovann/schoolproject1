@@ -62,7 +62,7 @@ class DocController extends Controller
     {
         $this->validate($request,[
             'customer_name'=>'required',
-            'property'=>'required',
+            'property_price'=>'required',
 
         ]);
         $documents = Documents::create($request->all());
@@ -104,12 +104,12 @@ class DocController extends Controller
     {
         $this->validate($request,[
             'customer_name'=>'required',
-            'property'=>'required',
+            'property_price'=>'required',
 
         ]);
         $documents = Documents::find($id);
         $documents->customer_name = $request->get('customer_name');
-        $documents->property = $request->get('property');
+        $documents->property_price = $request->get('property_price');
 
         $documents->save();
         return redirect()->route('document.index')->with('success','Data Update Successfully');
