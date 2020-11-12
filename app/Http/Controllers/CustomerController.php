@@ -47,12 +47,14 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-           'first_name'=>'required',
-           'last_name'=>'required',
-           'phone_number'=>'required',
-           'address'=>'required'
-        ]);
+//        $this->validate($request,[
+//           'first_name'=>'required',
+//           'last_name'=>'required',
+//           'age'=>'required',
+//           'job'=>'required',
+//           'phone_number'=>'required',
+//           'address'=>'required'
+//        ]);
         $customers = Customers::create($request->all());
         return redirect()->route('customer.index')->with('success','Data Added');
     }
@@ -61,11 +63,12 @@ class CustomerController extends Controller
      * Display the specified resource.
      *
      * @param int $id
-     * @return void
+     * @return Application|Factory|View
      */
     public function show($id)
     {
-        //
+        $customers = Customers::all();
+        return view('evaluator.Customer.show', compact('customers','id'));
     }
 
     /**
@@ -93,12 +96,16 @@ class CustomerController extends Controller
         $this->validate($request,[
             'first_name'=>'required',
             'last_name'=>'required',
+            'age'=>'required',
+            'job'=>'required',
             'phone_number'=>'required',
             'address'=>'required'
         ]);
         $customers = Customers::find($id);
         $customers->first_name = $request->get('first_name');
         $customers->last_name = $request->get('last_name');
+        $customers->age = $request->get('age');
+        $customers->job = $request->get('job');
         $customers->phone_number = $request->get('phone_number');
         $customers->address = $request->get('address');
         $customers->save();

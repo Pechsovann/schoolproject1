@@ -15,8 +15,9 @@ class CreateDocumentsTable extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
-            $table->string('customer_name');
-            $table->string('property_price');
+            $table->integer('max_loan');
+            $table->integer('property_price');
+            $table->string('property_type');
             $table->unsignedBigInteger('customer_id')->nullable();
             $table->timestamps();
         });
