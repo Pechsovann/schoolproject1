@@ -22,9 +22,9 @@ class UsersTableSeeder extends Seeder
 
         DB::table('users')->insert([
             'role_id' => '2',
-            'first_name' => 'evaluator',
-            'last_name' => 'evaluator',
-            'email' => 'evaluator@admin.com',
+            'first_name' => 'Staff',
+            'last_name' => 'staff',
+            'email' => 'staff@admin.com',
             'password' => bcrypt('12345678'),
         ]);
     }

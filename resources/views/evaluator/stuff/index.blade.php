@@ -1,19 +1,19 @@
 @extends('evaluator.dashboard')
+@section('head')
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Stuffs</h1>
+        <a href="{{route('stuff.create')}}" class="btn btn-primary">Add data</a>
+    </div>
+@endsection
 @section('contents')
+    <div class="row">
     <div class="col-md-12">
-        <br />
-        <h3 align="center">Stuff Data</h3>
 
         @if($message = Session::get('success'))
             <div class="alert alert-success">
                 <p>{{$message}}</p>
             </div>
         @endif
-        <div align="right">
-            <a href="{{ route('stuff.create')}}" class="btn btn-primary" >Add data</a>
-            <br />
-            <br />
-        </div>
         <table class="table table-bordered table-striped" id="myTable" style="width: 100%">
                 <thead>
                 <tr>
@@ -48,10 +48,13 @@
                         </td>
                     </tr>
                 @endforeach
+
                 </tbody>
             </table>
             </div>
+        </div>
     </div>
+
 @endsection
 
 @section('scripts')

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Customers extends Model
 {
-    protected $fillable=['first_name','last_name','phone_number','address', 'province_id'];
+    protected $fillable=['first_name','last_name','age','job','phone_number','address', 'province_id'];
 
     protected $appends = [
         'full_name'
@@ -18,5 +18,6 @@ class Customers extends Model
 
     public function getFullNameAttribute() {
         return $this->first_name.' '. $this->last_name;
+//        return$this->first_name.' '. $this->last_name;
     }
 }

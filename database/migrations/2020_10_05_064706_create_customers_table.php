@@ -17,10 +17,13 @@ class CreateCustomersTable extends Migration
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('phone_number');
+            $table->integer('age');
+            $table->string('job');
+            $table->integer('phone_number');
             $table->string('address');
             $table->unsignedBigInteger('province_id')->nullable();
             $table->timestamps();
+//            $table->timestamp('dob');
         });
     }
 

@@ -61,8 +61,9 @@ class DocController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'customer_name'=>'required',
+            'max_loan'=>'required',
             'property_price'=>'required',
+            'property_type'=>'required',
 
         ]);
         $documents = Documents::create($request->all());
@@ -103,13 +104,15 @@ class DocController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-            'customer_name'=>'required',
+            'max_loan'=>'required',
             'property_price'=>'required',
+            'property_type'=>'required',
 
         ]);
         $documents = Documents::find($id);
-        $documents->customer_name = $request->get('customer_name');
+        $documents->max_loan = $request->get('max_loan');
         $documents->property_price = $request->get('property_price');
+        $documents->property_type = $request->get('property_type');
 
         $documents->save();
         return redirect()->route('document.index')->with('success','Data Update Successfully');

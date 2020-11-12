@@ -15,7 +15,7 @@ class Company_areaSeeder extends Seeder
             {
                 DB::table('company_areas')->insert([
                     'id' => '1',
-                    'company_area' => 'Phnom Pech',
+                    'company_area' => 'Phnom Penh',
                 ]);
                 DB::table('company_areas')->insert([
                     'id' => '2',

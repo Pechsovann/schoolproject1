@@ -19,9 +19,9 @@
             @include('evaluator.parts.nav')
             <div class="container-fluid">
                 @yield('head')
-                <div class="row">
+{{--                <div class="row">--}}
                     @yield('contents')
-                </div>
+{{--                </div>--}}
             </div>
             @include('admin.parts.footer')
         </div>
