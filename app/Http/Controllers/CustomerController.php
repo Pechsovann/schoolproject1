@@ -47,14 +47,15 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-//        $this->validate($request,[
-//           'first_name'=>'required',
-//           'last_name'=>'required',
-//           'age'=>'required',
-//           'job'=>'required',
-//           'phone_number'=>'required',
-//           'address'=>'required'
-//        ]);
+        $this->validate($request,[
+           'first_name'=>'required',
+           'last_name'=>'required',
+           'age'=>'required',
+           'gender'=>'required',
+           'job'=>'required',
+           'phone_number'=>'required',
+           'city'=>'required'
+        ]);
         $customers = Customers::create($request->all());
         return redirect()->route('customer.index')->with('success','Data Added');
     }
@@ -93,21 +94,26 @@ class CustomerController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $this->validate($request,[
             'first_name'=>'required',
             'last_name'=>'required',
             'age'=>'required',
+            'gender'=>'required',
             'job'=>'required',
             'phone_number'=>'required',
-            'address'=>'required'
+            'khan'=>'required',
+            'city'=>'required'
         ]);
         $customers = Customers::find($id);
         $customers->first_name = $request->get('first_name');
         $customers->last_name = $request->get('last_name');
         $customers->age = $request->get('age');
+        $customers->gender = $request->get('gender');
         $customers->job = $request->get('job');
         $customers->phone_number = $request->get('phone_number');
-        $customers->address = $request->get('address');
+        $customers->khan = $request->get('khan');
+        $customers->city = $request->get('city');
         $customers->save();
         return redirect()->route('customer.index')->with('success','Data Update Successfully');
     }

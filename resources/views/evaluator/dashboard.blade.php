@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>SB Admin 2 - @yield('title')</title>
+    <title>Basic Reference Tracking System @yield('title')</title>
     @include('admin.parts.css')
     @yield('styles')
 </head>

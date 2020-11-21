@@ -17,10 +17,12 @@ class CreateCustomersTable extends Migration
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
-            $table->integer('age');
+            $table->date('age')->nullable();
+            $table->string('gender');
             $table->string('job');
-            $table->integer('phone_number');
-            $table->string('address');
+            $table->string('phone_number');
+            $table->string('khan');
+            $table->string('city');
             $table->unsignedBigInteger('province_id')->nullable();
             $table->timestamps();
 //            $table->timestamp('dob');

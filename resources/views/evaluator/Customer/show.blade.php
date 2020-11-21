@@ -9,5 +9,5 @@
 @section('contents')
 
 
-
+</div>
 @endsection

@@ -64,6 +64,7 @@ class DocController extends Controller
             'max_loan'=>'required',
             'property_price'=>'required',
             'property_type'=>'required',
+            'customer_id'=>'required',
 
         ]);
         $documents = Documents::create($request->all());
@@ -89,8 +90,10 @@ class DocController extends Controller
      */
     public function edit($id)
     {
+
+        $customers = Customers::all();
         $documents = Documents::find($id);
-        return view('evaluator.documents.edit',compact('documents','id'));
+        return view('evaluator.documents.edit',compact('customers','id','documents'));
     }
 
     /**
@@ -107,12 +110,13 @@ class DocController extends Controller
             'max_loan'=>'required',
             'property_price'=>'required',
             'property_type'=>'required',
-
+//            'customer_id'=>'required',
         ]);
         $documents = Documents::find($id);
         $documents->max_loan = $request->get('max_loan');
         $documents->property_price = $request->get('property_price');
         $documents->property_type = $request->get('property_type');
+//        $documents->custome->id = $request->get('id');
 
         $documents->save();
         return redirect()->route('document.index')->with('success','Data Update Successfully');

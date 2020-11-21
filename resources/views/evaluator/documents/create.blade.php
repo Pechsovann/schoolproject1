@@ -26,13 +26,13 @@
                     {{--                <form>--}}
                     {{csrf_field()}}
                     <div class="form-group">
-                        <input type="text" class="form-control" id="inputEmail" name="max_loan" placeholder="Maximum Loan Amount">
+                        <input type="text" class="form-control" id="max_load" name="max_loan" placeholder="Maximum Loan Amount">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="inputPassword" name="property_price" placeholder="Property_price">
+                        <input type="text" class="form-control" id="property_price" name="property_price" placeholder="Property_price">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="inputPassword" name="property_type" placeholder="Property_type">
+                        <input type="text" class="form-control" id="property_type" name="property_type" placeholder="Property_type">
                     </div>
 
                     <div class="form-group">
